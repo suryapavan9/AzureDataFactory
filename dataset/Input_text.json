@@ -1,0 +1,20 @@
+{
+	"name": "Input_text",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Linkedservice_practice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "moviesDB.txt",
+				"folderPath": "input",
+				"container": "practice"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

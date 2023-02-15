@@ -1,0 +1,39 @@
+{
+	"name": "Append",
+	"properties": {
+		"activities": [
+			{
+				"name": "Append variable1",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "listOfFiles",
+					"value": {
+						"value": "@pipeline().parameters.fileList",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"fileList": {
+				"type": "string",
+				"defaultValue": "movieDB2.txt"
+			}
+		},
+		"variables": {
+			"listOfFiles": {
+				"type": "Array",
+				"defaultValue": [
+					"AP",
+					"TS",
+					"KN"
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-02-14T04:30:06Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

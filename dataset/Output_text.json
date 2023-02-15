@@ -1,0 +1,20 @@
+{
+	"name": "Output_text",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Linkedservice_practice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "data1.txt",
+				"folderPath": "output",
+				"container": "practice"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

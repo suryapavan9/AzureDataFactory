@@ -1,0 +1,9 @@
+{
+	"name": "Test-AzureDF",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "88372b34-0a3f-49c2-86df-b2bf2ce37fc5",
+		"tenantId": "45ddba3e-f2a4-4768-9a33-169d2e68bbb9"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "DestinationDataset_i1k",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Targettest",
+			"table": "moviesDB2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
