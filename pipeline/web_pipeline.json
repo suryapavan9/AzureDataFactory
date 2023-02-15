@@ -18,6 +18,21 @@
 					"url": "https://dummy.restapiexample.com/api/v1/employees",
 					"method": "GET"
 				}
+			},
+			{
+				"name": "sendEmail",
+				"type": "WebHook",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://dummy.restapiexample.com/api/v1/create",
+					"method": "POST",
+					"headers": {
+						"Content-type": "application\\json"
+					},
+					"body": "{\n      callBackUri: URL\n}",
+					"timeout": "00:10:00"
+				}
 			}
 		],
 		"annotations": [],
