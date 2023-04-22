@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "test2-DF1"
+		},
+		"AzureSqlLinkedService_connectionString": {
+			"value": ""
+		},
+		"Linkedservice_practice_connectionString": {
+			"value": ""
+		},
+		"event_trigger_properties_copy-pipeline2_parameters_SourcePath": {
+			"value": "@triggerBody().filePath"
+		},
+		"event_trigger_properties_copy-pipeline2_parameters_SourceFile": {
+			"value": "@triggerBody().fileName"
+		},
+		"event_trigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/5031f15f-eafc-465a-8739-c7687a99139f/resourceGroups/test-datafactory/providers/Microsoft.Storage/storageAccounts/azurestorage021"
+		}
+	}
+}

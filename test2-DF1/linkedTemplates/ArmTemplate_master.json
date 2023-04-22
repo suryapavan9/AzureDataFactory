@@ -1,0 +1,97 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "test2-DF1"
+		},
+		"AzureSqlLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlLinkedService'"
+		},
+		"Linkedservice_practice_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Linkedservice_practice'"
+		},
+		"event_trigger_properties_copy-pipeline2_parameters_SourcePath": {
+			"type": "string",
+			"defaultValue": "@triggerBody().filePath"
+		},
+		"event_trigger_properties_copy-pipeline2_parameters_SourceFile": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"event_trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/5031f15f-eafc-465a-8739-c7687a99139f/resourceGroups/test-datafactory/providers/Microsoft.Storage/storageAccounts/azurestorage021"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "test2-DF1_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlLinkedService_connectionString": {
+						"value": "[parameters('AzureSqlLinkedService_connectionString')]"
+					},
+					"Linkedservice_practice_connectionString": {
+						"value": "[parameters('Linkedservice_practice_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "test2-DF1_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"event_trigger_properties_copy-pipeline2_parameters_SourcePath": {
+						"value": "[parameters('event_trigger_properties_copy-pipeline2_parameters_SourcePath')]"
+					},
+					"event_trigger_properties_copy-pipeline2_parameters_SourceFile": {
+						"value": "[parameters('event_trigger_properties_copy-pipeline2_parameters_SourceFile')]"
+					},
+					"event_trigger_properties_typeProperties_scope": {
+						"value": "[parameters('event_trigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'test2-DF1_ArmTemplate_0')]"
+			]
+		}
+	]
+}
