@@ -1351,7 +1351,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "moviesDB.txt",
+						"fileName": "moviesDB2.csv",
 						"folderPath": "input",
 						"container": "practice"
 					}
